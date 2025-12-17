@@ -1,6 +1,9 @@
 import api from "./axios";
+import API_CONFIG from "./config";
 
-const EXP_BASE = "/api/experiences";
+const EXP_BASE = import.meta.env.PROD 
+  ? `${API_CONFIG.experiences}/api/experiences`
+  : "/api/experiences";
 
 export const getAllExperiences = () =>
   api.get(EXP_BASE);
