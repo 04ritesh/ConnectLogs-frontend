@@ -40,3 +40,54 @@
 .read-the-docs {
   color: #888;
 }
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.experience-card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 15px 0;
+  text-align: left;
+}
+
+.tags-container {
+  margin-top: 10px;
+}
+
+.tag {
+  background: #e0e0e0;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.8em;
+  margin-right: 5px;
+}
+
+.like-button {
+  background: none;
+  border: 1px solid #ddd;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 10px;
+}
+
+.like-button:hover {
+  background: #f5f5f5;
+}
+
+.like-button.liked {
+  background: #ffe6e6;
+  border-color: #ff6b6b;
+  color: #ff6b6b;
+}
+
+.like-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

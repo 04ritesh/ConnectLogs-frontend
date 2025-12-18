@@ -20,6 +20,11 @@ export default defineConfig({
         target: 'https://triumphant-flexibility-production.up.railway.app',
         changeOrigin: true,
         secure: false
+      },
+      '/api/likes': {
+        target: 'https://connectlogs-production-640c.up.railway.app',
+        changeOrigin: true,
+        secure: false
       }
     }
   }

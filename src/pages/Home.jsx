@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { getAllExperiences } from "../api/experience.api";
 import ExperienceCard from "../components/ExperienceCard";
+import LikeButton from "../components/LikeButton";
 
 function Home() {
   const [experiences, setExperiences] = useState([]);
@@ -41,6 +42,7 @@ function Home() {
                   ))}
                 </div>
               )}
+              <LikeButton experienceId={exp.id} />
             </div>
           ))}
         </div>
