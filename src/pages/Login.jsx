@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { loginUser } from '../api/user.api';
 import { useAuth } from '../context/AuthContext';
 
@@ -75,7 +75,7 @@ function Login() {
         </form>
         
         <div className="auth-footer">
-          <p>Don't have an account? <a href="/signup">Sign Up</a></p>
+          <p>Don't have an account? <Link to="/signup">Sign Up</Link></p>
         </div>
       </div>
     </div>

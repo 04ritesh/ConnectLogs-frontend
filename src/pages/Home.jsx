@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { getAllExperiences } from "../api/experience.api";
 import ExperienceCard from "../components/ExperienceCard";
 import LikeButton from "../components/LikeButton";
@@ -18,12 +19,12 @@ function Home() {
             <p>Please sign in to view and share experiences</p>
           </div>
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
-            <a href="/login" style={{ textDecoration: 'none' }}>
+            <Link to="/login" style={{ textDecoration: 'none' }}>
               <button>Sign In</button>
-            </a>
-            <a href="/signup" style={{ textDecoration: 'none' }}>
+            </Link>
+            <Link to="/signup" style={{ textDecoration: 'none' }}>
               <button>Sign Up</button>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
