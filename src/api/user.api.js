@@ -1,9 +1,22 @@
-import api from "./axios";
+import axios from "axios";
 
-const USER_BASE = "/api/users";
+const USER_BASE_URL = import.meta.env.PROD 
+  ? 'https://connectlogs-production-31ac.up.railway.app'
+  : '';
 
-export const getUserById = (id) =>
-  api.get(`${USER_BASE}/${id}`);
+const userApi = axios.create({
+  baseURL: USER_BASE_URL,
+  timeout: 10000,
+  headers: {
+    "Content-Type": "application/json"
+  }
+});
 
-export const createUser = (data) =>
-  api.post(USER_BASE, data);
+export const signupUser = (userData) =>
+  userApi.post('/api/users/signup', userData);
+
+export const loginUser = (credentials) =>
+  userApi.post('/api/users/login', credentials);
+
+export const getUserById = (userId) =>
+  userApi.get(`/api/users/${userId}`);

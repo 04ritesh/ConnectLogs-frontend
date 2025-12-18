@@ -1,20 +1,38 @@
 import { useState } from "react";
 import { createExperience } from "../api/experience.api";
+import { useAuth } from '../context/AuthContext';
 
 function CreateExperience() {
+  const { user } = useAuth();
   const [form, setForm] = useState({
     title: "",
     content: "",
     tags: []
   });
 
+  if (!user) {
+    return (
+      <div className="container">
+        <div className="auth-container">
+          <h2>Please login to create experiences</h2>
+          <a href="/login">Go to Login</a>
+        </div>
+      </div>
+    );
+  }
+
   const handleChange = e =>
     setForm({ ...form, [e.target.name]: e.target.value });
 
   const handleSubmit = async e => {
     e.preventDefault();
-    await createExperience(form, 1);
-    alert("Experience created");
+    try {
+      await createExperience(form, user.id);
+      alert("Experience created successfully!");
+      setForm({ title: "", content: "", tags: [] });
+    } catch (err) {
+      alert("Failed to create experience");
+    }
   };
 
   return (
